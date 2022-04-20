@@ -21,8 +21,8 @@ var twitterApi = new Twit({
 spotifyApi.getMyCurrentPlayingTrack()
 .then((data)=>{
     postMusicOnTwitter('Hey! Agora eu estou ouvindo: \n' + JSON.stringify(data.body.item.name) + ' - ' + JSON.stringify(data.body.item.artists[0].name) + "\n Bora ouvir também?");
-}, (err)=> {
-    console.log('ERROR:' + err)
+}).catch((err) => {
+    console.log("Error:" + err)
 })
 
 function postMusicOnTwitter(post){
